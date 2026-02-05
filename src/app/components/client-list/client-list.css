@@ -1,0 +1,31 @@
+@import '../dashboard/dashboard.css';
+@import '../turn-list/turn-list.css';
+
+.clients-section {
+    margin-top: 20px;
+}
+
+.table-container {
+    padding: 20px;
+}
+
+.loading-state,
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+.btn-action {
+    padding: 6px 12px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.2);
+    border-radius: 6px;
+    color: var(--accent);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-action:hover {
+    background: rgba(251, 191, 36, 0.2);
+}

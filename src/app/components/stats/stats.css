@@ -1,0 +1,17 @@
+/* Reutilizamos los estilos base del dashboard */
+@import '../dashboard/dashboard.css';
+
+.stats-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.chart-section {
+    padding-bottom: 30px;
+}
+
+.chart-container {
+    padding: 20px;
+    min-height: 400px;
+}
