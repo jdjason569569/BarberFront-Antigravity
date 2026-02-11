@@ -35,7 +35,7 @@ export class LoyaltyGraph implements OnInit {
     datasets: [
       {
         data: [],
-        backgroundColor: '#fbbf24',
+        backgroundColor: '#22d3ee',
         borderRadius: 5,
         borderSkipped: false
       }

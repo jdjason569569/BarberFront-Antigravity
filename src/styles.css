@@ -1,13 +1,13 @@
 /* src/styles.css */
 :root {
-  --bg-dark: #0f172a;
-  --bg-secondary: #1e293b;
-  --accent: #fbbf24;
-  --accent-hover: #f59e0b;
+  --bg-dark: #020617;
+  --bg-secondary: #0f172a;
+  --accent: #22d3ee;
+  --accent-hover: #0891b2;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --card-bg: rgba(30, 41, 59, 0.7);
-  --border-color: #334155;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-color: rgba(34, 211, 238, 0.1);
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -25,7 +25,9 @@ body {
   line-height: 1.5;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--accent);
 }
 
