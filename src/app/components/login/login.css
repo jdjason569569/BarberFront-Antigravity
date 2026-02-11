@@ -1,10 +1,40 @@
 .login-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
     background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
+}
+
+.lang-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.lang-switcher button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-switcher button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switcher button.active {
+    background: var(--accent);
+    color: var(--bg-dark);
+    border-color: var(--accent);
 }
 
 .login-card {
@@ -94,6 +124,35 @@
     padding: 10px;
     background: rgba(239, 68, 68, 0.1);
     border-radius: 6px;
+}
+
+.success-message {
+    color: #10b981;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 6px;
+}
+
+.toggle-mode {
+    margin-top: 20px;
+}
+
+.toggle-mode p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.toggle-mode a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.toggle-mode a:hover {
+    text-decoration: underline;
 }
 
 .demo-info {

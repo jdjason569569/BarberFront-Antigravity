@@ -2,26 +2,33 @@
     <aside class="sidebar glass">
         <div class="sidebar-header">
             <div class="logo">✂️</div>
-            <h2>BarberView</h2>
+            <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
         </div>
         <nav>
             <ul>
-                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> Agenda</li>
-                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> Estadísticas</li>
-                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> Clientes</li>
+                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> {{ 'DASHBOARD.TURNS'
+                    | translate }}</li>
+                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> {{ 'DASHBOARD.STATS' |
+                    translate }}</li>
+                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> {{ 'DASHBOARD.CLIENTS'
+                    | translate }}</li>
             </ul>
         </nav>
         <div class="sidebar-footer">
+            <div class="lang-switcher-sidebar">
+                <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
+                <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+            </div>
             <button class="btn-logout" (click)='onLogout()'>
-                <span class="icon">🚪</span> Salir
+                <span class="icon">🚪</span> {{ 'DASHBOARD.LOGOUT' | translate }}
             </button>
         </div>
     </aside>
 
     <main class="main-content">
         <header class="content-header">
-            <h1>Bienvenido, Barbero</h1>
-            <p class="date">{{ "Hoy es " + (null | date:'fullDate') }}</p>
+            <h1>{{ 'DASHBOARD.WELCOME' | translate:{name: userName} }}</h1>
+            <p class="date">{{ currentLang === 'es' ? 'Hoy es ' : 'Today is ' }}{{ (null | date:'fullDate') }}</p>
         </header>
 
         <section class="stats-grid">
@@ -29,14 +36,14 @@
                 <span class="stat-icon">👥</span>
                 <div class="stat-info">
                     <span class="stat-value">{{ stats.totalClients }}</span>
-                    <span class="stat-label">Clientes Totales</span>
+                    <span class="stat-label">{{ 'DASHBOARD.TOTAL_CLIENTS' | translate }}</span>
                 </div>
             </div>
             <div class="stat-card glass grow">
                 <span class="stat-icon">✂️</span>
                 <div class="stat-info">
                     <span class="stat-value">{{ stats.totalTurns }}</span>
-                    <span class="stat-label">Turnos Realizados</span>
+                    <span class="stat-label">{{ 'DASHBOARD.TOTAL_TURNS' | translate }}</span>
                 </div>
             </div>
         </section>
@@ -44,14 +51,14 @@
         <div class="dashboard-grid">
             <section class="turns-section glass">
                 <div class="card-header">
-                    <h3>Turnos de Hoy</h3>
+                    <h3>{{ 'TURNS.TITLE' | translate }}</h3>
                 </div>
                 <app-turn-list></app-turn-list>
             </section>
 
             <section class="stats-section glass">
                 <div class="card-header">
-                    <h3>Fidelización de Clientes</h3>
+                    <h3>{{ 'STATS.TITLE' | translate }}</h3>
                 </div>
                 <app-loyalty-graph></app-loyalty-graph>
             </section>

@@ -1,11 +1,12 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Supabase } from '../../services/supabase';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-turn-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './turn-list.html',
   styleUrl: './turn-list.css',
 })

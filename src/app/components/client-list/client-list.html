@@ -2,46 +2,53 @@
     <aside class="sidebar glass">
         <div class="sidebar-header">
             <div class="logo">✂️</div>
-            <h2>BarberView</h2>
+            <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
         </div>
         <nav>
             <ul>
-                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> Agenda</li>
-                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> Estadísticas</li>
-                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> Clientes</li>
+                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> {{ 'DASHBOARD.TURNS'
+                    | translate }}</li>
+                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> {{ 'DASHBOARD.STATS' |
+                    translate }}</li>
+                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> {{ 'DASHBOARD.CLIENTS'
+                    | translate }}</li>
             </ul>
         </nav>
         <div class="sidebar-footer">
+            <div class="lang-switcher-sidebar">
+                <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
+                <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+            </div>
             <button class="btn-logout" (click)='onLogout()'>
-                <span class="icon">🚪</span> Salir
+                <span class="icon">🚪</span> {{ 'DASHBOARD.LOGOUT' | translate }}
             </button>
         </div>
     </aside>
 
     <main class="main-content">
         <header class="content-header">
-            <h1>Gestión de Clientes</h1>
-            <p class="date">Listado completo de clientes registrados</p>
+            <h1>{{ 'CLIENTS.TITLE' | translate }}</h1>
+            <p class="date">{{ 'CLIENTS.SUBTITLE' | translate }}</p>
         </header>
 
         <section class="clients-section glass">
             <div class="card-header">
-                <h3>Base de Datos de Clientes</h3>
+                <h3>{{ 'CLIENTS.CARD_TITLE' | translate }}</h3>
             </div>
 
             <div class="table-container">
                 <div *ngIf="loading()" class="loading-state">
-                    Cargando clientes...
+                    {{ 'CLIENTS.LOADING' | translate }}
                 </div>
 
                 <table *ngIf="!loading()">
                     <thead>
                         <tr>
-                            <th>Nombre Completo</th>
-                            <th>Email</th>
-                            <th>Teléfono</th>
-                            <th>Fecha Registro</th>
-                            <th>Acciones</th>
+                            <th>{{ 'CLIENTS.NAME' | translate }}</th>
+                            <th>{{ 'CLIENTS.EMAIL' | translate }}</th>
+                            <th>{{ 'CLIENTS.PHONE' | translate }}</th>
+                            <th>{{ 'CLIENTS.REG_DATE' | translate }}</th>
+                            <th>{{ 'CLIENTS.ACTIONS' | translate }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,14 +58,14 @@
                             <td class="client-phone">{{ client.phone || 'N/A' }}</td>
                             <td class="date">{{ client.created_at | date:'mediumDate' }}</td>
                             <td class="actions">
-                                <button class="btn-action">✏️ Editar</button>
+                                <button class="btn-action">✏️ {{ 'CLIENTS.EDIT' | translate }}</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 
                 <div *ngIf="!loading() && clients().length === 0" class="empty-state">
-                    No hay clientes registrados aún.
+                    {{ 'CLIENTS.EMPTY' | translate }}
                 </div>
             </div>
         </section>

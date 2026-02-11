@@ -2,26 +2,33 @@
     <aside class="sidebar glass">
         <div class="sidebar-header">
             <div class="logo">✂️</div>
-            <h2>BarberView</h2>
+            <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
         </div>
         <nav>
             <ul>
-                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> Agenda</li>
-                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> Estadísticas</li>
-                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> Clientes</li>
+                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> {{ 'DASHBOARD.TURNS'
+                    | translate }}</li>
+                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> {{ 'DASHBOARD.STATS' |
+                    translate }}</li>
+                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> {{ 'DASHBOARD.CLIENTS'
+                    | translate }}</li>
             </ul>
         </nav>
         <div class="sidebar-footer">
+            <div class="lang-switcher-sidebar">
+                <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
+                <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+            </div>
             <button class="btn-logout" (click)='onLogout()'>
-                <span class="icon">🚪</span> Salir
+                <span class="icon">🚪</span> {{ 'DASHBOARD.LOGOUT' | translate }}
             </button>
         </div>
     </aside>
 
     <main class="main-content">
         <header class="content-header">
-            <h1>Panel de Estadísticas</h1>
-            <p class="date">Análisis detallado de tu barbería</p>
+            <h1>{{ 'DASHBOARD.STATS' | translate }}</h1>
+            <p class="date">{{ 'STATS.TITLE' | translate }}</p>
         </header>
 
         <section class="stats-grid">
@@ -29,14 +36,14 @@
                 <span class="stat-icon">👥</span>
                 <div class="stat-info">
                     <span class="stat-value">{{ stats.totalClients }}</span>
-                    <span class="stat-label">Clientes Totales</span>
+                    <span class="stat-label">{{ 'DASHBOARD.TOTAL_CLIENTS' | translate }}</span>
                 </div>
             </div>
             <div class="stat-card glass grow">
                 <span class="stat-icon">✂️</span>
                 <div class="stat-info">
                     <span class="stat-value">{{ stats.totalTurns }}</span>
-                    <span class="stat-label">Turnos Realizados</span>
+                    <span class="stat-label">{{ 'DASHBOARD.TOTAL_TURNS' | translate }}</span>
                 </div>
             </div>
         </section>
@@ -44,7 +51,7 @@
         <div class="stats-layout">
             <section class="chart-section glass">
                 <div class="card-header">
-                    <h3>Fidelización de Clientes (Top 5)</h3>
+                    <h3>{{ 'STATS.LOYALTY_CHART' | translate }}</h3>
                 </div>
                 <div class="chart-container">
                     <app-loyalty-graph></app-loyalty-graph>

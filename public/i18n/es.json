@@ -1,0 +1,64 @@
+{
+    "COMMON": {
+        "CLOSE": "Cerrar",
+        "SAVE": "Guardar",
+        "CANCEL": "Cancelar",
+        "BACK": "Volver"
+    },
+    "LOGIN": {
+        "TITLE": "BarberView",
+        "SUBTITLE_ADMIN": "Panel de Administración",
+        "SUBTITLE_SIGNUP": "Crea tu cuenta de barbero",
+        "EMAIL": "Correo Electrónico",
+        "PASSWORD": "Contraseña",
+        "BTN_ENTER": "Entrar",
+        "BTN_SIGNUP": "Registrarse",
+        "BTN_PROCESSING": "Procesando...",
+        "NO_ACCOUNT": "¿No tienes cuenta?",
+        "HAVE_ACCOUNT": "¿Ya tienes cuenta?",
+        "SIGNUP_HERE": "Regístrate aquí",
+        "LOGIN_HERE": "Inicia sesión",
+        "ERROR_CREDENTIALS": "Correo o contraseña incorrectos. Por favor, inténtalo de nuevo.",
+        "ERROR_CONNECTION": "Error de conexión: {{message}}",
+        "ERROR_UNEXPECTED": "Ocurrió un error inesperado.",
+        "SUCCESS_SIGNUP_AUTO": "Cuenta creada con éxito. Ya puedes iniciar sesión.",
+        "SUCCESS_SIGNUP_CONFIRM": "Registro exitoso. Por favor, revisa tu correo para confirmar tu cuenta e iniciar sesión."
+    },
+    "DASHBOARD": {
+        "WELCOME": "¡Bienvenido, {{name}}!",
+        "LOGOUT": "Cerrar Sesión",
+        "STATS": "Estadísticas",
+        "TURNS": "Lista de Turnos",
+        "CLIENTS": "Clientes",
+        "TOTAL_TURNS": "Turnos Totales",
+        "TOTAL_CLIENTS": "Clientes Totales"
+    },
+    "STATS": {
+        "TITLE": "Análisis de Fidelización",
+        "LOYALTY_CHART": "Top 5 Clientes más Fieles",
+        "VISITS": "Visitas"
+    },
+    "TURNS": {
+        "TITLE": "Próximos Turnos",
+        "CLIENT": "Cliente",
+        "DATE": "Fecha",
+        "SERVICE": "Servicio",
+        "STATUS": "Estado",
+        "PENDING": "Pendiente",
+        "COMPLETED": "Completado",
+        "CANCELLED": "Cancelado"
+    },
+    "CLIENTS": {
+        "TITLE": "Gestión de Clientes",
+        "SUBTITLE": "Listado completo de clientes registrados",
+        "CARD_TITLE": "Base de Datos de Clientes",
+        "LOADING": "Cargando clientes...",
+        "EMPTY": "No hay clientes registrados aún.",
+        "NAME": "Nombre Completo",
+        "EMAIL": "Email",
+        "PHONE": "Teléfono",
+        "REG_DATE": "Fecha Registro",
+        "ACTIONS": "Acciones",
+        "EDIT": "Editar"
+    }
+}

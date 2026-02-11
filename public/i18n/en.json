@@ -1,0 +1,64 @@
+{
+    "COMMON": {
+        "CLOSE": "Close",
+        "SAVE": "Save",
+        "CANCEL": "Cancel",
+        "BACK": "Back"
+    },
+    "LOGIN": {
+        "TITLE": "BarberView",
+        "SUBTITLE_ADMIN": "Admin Panel",
+        "SUBTITLE_SIGNUP": "Create your barber account",
+        "EMAIL": "Email Address",
+        "PASSWORD": "Password",
+        "BTN_ENTER": "Login",
+        "BTN_SIGNUP": "Sign Up",
+        "BTN_PROCESSING": "Processing...",
+        "NO_ACCOUNT": "Don't have an account?",
+        "HAVE_ACCOUNT": "Already have an account?",
+        "SIGNUP_HERE": "Sign up here",
+        "LOGIN_HERE": "Login here",
+        "ERROR_CREDENTIALS": "Invalid email or password. Please try again.",
+        "ERROR_CONNECTION": "Connection error: {{message}}",
+        "ERROR_UNEXPECTED": "An unexpected error occurred.",
+        "SUCCESS_SIGNUP_AUTO": "Account created successfully. You can now login.",
+        "SUCCESS_SIGNUP_CONFIRM": "Signup successful. Please check your email to confirm your account and login."
+    },
+    "DASHBOARD": {
+        "WELCOME": "Welcome, {{name}}!",
+        "LOGOUT": "Logout",
+        "STATS": "Statistics",
+        "TURNS": "Turn List",
+        "CLIENTS": "Clients",
+        "TOTAL_TURNS": "Total Turns",
+        "TOTAL_CLIENTS": "Total Clients"
+    },
+    "STATS": {
+        "TITLE": "Loyalty Analysis",
+        "LOYALTY_CHART": "Top 5 Most Loyal Clients",
+        "VISITS": "Visits"
+    },
+    "TURNS": {
+        "TITLE": "Upcoming Turns",
+        "CLIENT": "Client",
+        "DATE": "Date",
+        "SERVICE": "Service",
+        "STATUS": "Status",
+        "PENDING": "Pending",
+        "COMPLETED": "Completed",
+        "CANCELLED": "Cancelled"
+    },
+    "CLIENTS": {
+        "TITLE": "Client Management",
+        "SUBTITLE": "Full list of registered clients",
+        "CARD_TITLE": "Client Database",
+        "LOADING": "Loading clients...",
+        "EMPTY": "No registered clients yet.",
+        "NAME": "Full Name",
+        "EMAIL": "Email",
+        "PHONE": "Phone",
+        "REG_DATE": "Registration Date",
+        "ACTIONS": "Actions",
+        "EDIT": "Edit"
+    }
+}

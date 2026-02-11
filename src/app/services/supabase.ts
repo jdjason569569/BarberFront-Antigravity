@@ -31,6 +31,10 @@ export class Supabase {
     return await this.supabase.auth.signInWithPassword({ email, password: pass });
   }
 
+  async signUp(email: string, pass: string) {
+    return await this.supabase.auth.signUp({ email, password: pass });
+  }
+
   async signOut() {
     return await this.supabase.auth.signOut();
   }
