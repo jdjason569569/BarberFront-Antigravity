@@ -60,5 +60,11 @@
         "REG_DATE": "Fecha Registro",
         "ACTIONS": "Acciones",
         "EDIT": "Editar"
+    },
+    "FIGMA": {
+        "TITLE": "Calendario Maestro",
+        "SUBTITLE": "Diseño de agenda profesional inspirado en shadcn/ui",
+        "LEGACY_TITLE": "Diseño Original Liquid Glass",
+        "NO_TURNS": "No hay turnos para este día"
     }
 }

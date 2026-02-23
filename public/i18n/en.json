@@ -60,5 +60,11 @@
         "REG_DATE": "Registration Date",
         "ACTIONS": "Actions",
         "EDIT": "Edit"
+    },
+    "FIGMA": {
+        "TITLE": "Master Calendar",
+        "SUBTITLE": "Professional scheduler design inspired by shadcn/ui",
+        "LEGACY_TITLE": "Original Liquid Glass Design",
+        "NO_TURNS": "No turns for this day"
     }
 }
