@@ -1,49 +1,76 @@
-<div class="login-container">
-    <div class="lang-switcher">
-        <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
-        <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+<div class="login-page-wrapper">
+    <!-- Panel de Anuncios / Features -->
+    <div class="info-panel">
+        <div class="info-content">
+            <span class="badge">{{ 'LOGIN.AD_BADGE' | translate }}</span>
+            <h2>{{ 'LOGIN.AD_TITLE' | translate }}</h2>
+            <p>{{ 'LOGIN.AD_DESCRIPTION' | translate }}</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="icon">📅</span>
+                    <span>{{ 'LOGIN.AD_FEATURE_REALTIME' | translate }}</span>
+                </div>
+                <div class="feature-item">
+                    <span class="icon">⚡</span>
+                    <span>{{ 'LOGIN.AD_FEATURE_ACCESS' | translate }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="info-footer">
+            <p>{{ 'LOGIN.FOOTER_INFO' | translate }}</p>
+        </div>
     </div>
 
-    <div class="login-card">
-        <div class="login-header">
-            <div class="logo">✂️</div>
-            <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
-            <p>{{ (isRegistering() ? 'LOGIN.SUBTITLE_SIGNUP' : 'LOGIN.SUBTITLE_ADMIN') | translate }}</p>
+    <!-- Formulario de Login -->
+    <div class="login-side">
+        <div class="lang-switcher">
+            <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
+            <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
         </div>
 
-        <form (submit)="onSubmit($event)">
-            <div class="form-group">
-                <label for="email">{{ 'LOGIN.EMAIL' | translate }}</label>
-                <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="test@barber.com" required>
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">✂️</div>
+                <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
+                <p>{{ (isRegistering() ? 'LOGIN.SUBTITLE_SIGNUP' : 'LOGIN.SUBTITLE_ADMIN') | translate }}</p>
             </div>
 
-            <div class="form-group">
-                <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
-                <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="••••••••"
-                    required>
-            </div>
+            <form (submit)="onSubmit($event)">
+                <div class="form-group">
+                    <label for="email">{{ 'LOGIN.EMAIL' | translate }}</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="test@barber.com"
+                        required>
+                </div>
 
-            <button type="submit" class="btn-primary" [disabled]="loading()">
-                {{ (loading() ? 'LOGIN.BTN_PROCESSING' : (isRegistering() ? 'LOGIN.BTN_SIGNUP' : 'LOGIN.BTN_ENTER')) |
-                translate }}
-            </button>
+                <div class="form-group">
+                    <label for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
+                    <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="••••••••"
+                        required>
+                </div>
 
-            <div class="toggle-mode">
-                <p>
-                    {{ (isRegistering() ? 'LOGIN.HAVE_ACCOUNT' : 'LOGIN.NO_ACCOUNT') | translate }}
-                    <a (click)="toggleMode()" href="javascript:void(0)">
-                        {{ (isRegistering() ? 'LOGIN.LOGIN_HERE' : 'LOGIN.SIGNUP_HERE') | translate }}
-                    </a>
-                </p>
-            </div>
+                <button type="submit" class="btn-primary" [disabled]="loading()">
+                    {{ (loading() ? 'LOGIN.BTN_PROCESSING' : (isRegistering() ? 'LOGIN.BTN_SIGNUP' : 'LOGIN.BTN_ENTER'))
+                    |
+                    translate }}
+                </button>
 
-            <div *ngIf="error()" class="error-message">
-                {{ error() }}
-            </div>
+                <div class="toggle-mode">
+                    <p>
+                        {{ (isRegistering() ? 'LOGIN.HAVE_ACCOUNT' : 'LOGIN.NO_ACCOUNT') | translate }}
+                        <a (click)="toggleMode()" href="javascript:void(0)">
+                            {{ (isRegistering() ? 'LOGIN.LOGIN_HERE' : 'LOGIN.SIGNUP_HERE') | translate }}
+                        </a>
+                    </p>
+                </div>
 
-            <div *ngIf="successMessage()" class="success-message">
-                {{ successMessage() }}
-            </div>
-        </form>
+                <div *ngIf="error()" class="error-message">
+                    {{ error() }}
+                </div>
+
+                <div *ngIf="successMessage()" class="success-message">
+                    {{ successMessage() }}
+                </div>
+            </form>
+        </div>
     </div>
 </div>

@@ -22,7 +22,13 @@
         "ERROR_CONNECTION": "Connection error: {{message}}",
         "ERROR_UNEXPECTED": "An unexpected error occurred.",
         "SUCCESS_SIGNUP_AUTO": "Account created successfully. You can now login.",
-        "SUCCESS_SIGNUP_CONFIRM": "Signup successful. Please check your email to confirm your account and login."
+        "SUCCESS_SIGNUP_CONFIRM": "Signup successful. Please check your email to confirm your account and login.",
+        "AD_BADGE": "NEW",
+        "AD_TITLE": "Smart Scheduler",
+        "AD_DESCRIPTION": "Visualize your daily shifts quickly and easily. Total control over your time and productivity.",
+        "AD_FEATURE_REALTIME": "Real-time visualization",
+        "AD_FEATURE_ACCESS": "Instant access",
+        "FOOTER_INFO": "BarberView Dashboard v1.0 • Premium Access"
     },
     "DASHBOARD": {
         "WELCOME": "Welcome, {{name}}!",

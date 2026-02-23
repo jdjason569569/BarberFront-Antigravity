@@ -22,7 +22,13 @@
         "ERROR_CONNECTION": "Error de conexión: {{message}}",
         "ERROR_UNEXPECTED": "Ocurrió un error inesperado.",
         "SUCCESS_SIGNUP_AUTO": "Cuenta creada con éxito. Ya puedes iniciar sesión.",
-        "SUCCESS_SIGNUP_CONFIRM": "Registro exitoso. Por favor, revisa tu correo para confirmar tu cuenta e iniciar sesión."
+        "SUCCESS_SIGNUP_CONFIRM": "Registro exitoso. Por favor, revisa tu correo para confirmar tu cuenta e iniciar sesión.",
+        "AD_BADGE": "NUEVO",
+        "AD_TITLE": "Agenda Inteligente",
+        "AD_DESCRIPTION": "Visualiza tus turnos diarios de forma rápida y sencilla. Control total sobre tu tiempo y productividad.",
+        "AD_FEATURE_REALTIME": "Visualización en tiempo real",
+        "AD_FEATURE_ACCESS": "Acceso instantáneo",
+        "FOOTER_INFO": "BarberView Dashboard v1.0 • Acceso Premium"
     },
     "DASHBOARD": {
         "WELCOME": "¡Bienvenido, {{name}}!",
