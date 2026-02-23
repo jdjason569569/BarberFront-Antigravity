@@ -1,0 +1,116 @@
+<div class="figma-container">
+    <aside class="sidebar glass">
+        <div class="sidebar-header">
+            <div class="logo">✂️</div>
+            <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
+        </div>
+
+        <nav>
+            <ul>
+                <li routerLink="/dashboard" routerLinkActive="active"><span class="icon">📅</span> {{ 'DASHBOARD.TURNS'
+                    | translate }}</li>
+                <li routerLink="/stats" routerLinkActive="active"><span class="icon">📊</span> {{ 'DASHBOARD.STATS' |
+                    translate }}</li>
+                <li routerLink="/clients" routerLinkActive="active"><span class="icon">👥</span> {{ 'DASHBOARD.CLIENTS'
+                    | translate }}</li>
+                <li routerLink="/figma" routerLinkActive="active"><span class="icon">🎨</span> Figma</li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="lang-switcher-sidebar">
+                <button (click)="useLanguage('es')" [class.active]="currentLang === 'es'">ES</button>
+                <button (click)="useLanguage('en')" [class.active]="currentLang === 'en'">EN</button>
+            </div>
+            <button class="btn-logout" (click)="onLogout()">
+                <span class="icon">🚪</span> {{ 'DASHBOARD.LOGOUT' | translate }}
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="content-header">
+            <h1>{{ 'FIGMA.TITLE' | translate }}</h1>
+            <p class="subtitle">{{ 'FIGMA.SUBTITLE' | translate }}</p>
+        </header>
+
+        <!-- New Calendar Design -->
+        <div class="calendar-layout">
+            <div class="calendar-card glass-shadcn">
+                <div class="calendar-header">
+                    <button class="btn-nav" (click)="prevMonth()">‹</button>
+                    <h3>{{ currentMonthName() }} {{ currentYear() }}</h3>
+                    <button class="btn-nav" (click)="nextMonth()">›</button>
+                </div>
+
+                <div class="calendar-grid">
+                    <div class="weekday" *ngFor="let day of weekDays">{{ day }}</div>
+                    <div class="day empty" *ngFor="let empty of emptyDays()"></div>
+                    <div class="day" *ngFor="let date of daysInMonth()" [class.today]="isToday(date)"
+                        [class.selected]="isSelected(date)" (click)="selectDate(date)">
+                        <span class="day-number">{{ date }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-panel glass-card">
+                <div class="panel-header">
+                    <h3>{{ selectedDateDisplay() }}</h3>
+                    <button class="btn-add">+</button>
+                </div>
+                <div class="appointments-list">
+                    <div class="appointment-item item-glass" *ngFor="let turn of selectedDayTurns()">
+                        <div class="time">{{ turn.time }}</div>
+                        <div class="info">
+                            <span class="client">{{ turn.client }}</span>
+                            <span class="service">{{ turn.service }}</span>
+                        </div>
+                        <div class="status" [class]="turn.status">{{ turn.status }}</div>
+                    </div>
+                    <div class="empty-msg" *ngIf="selectedDayTurns().length === 0">
+                        {{ 'FIGMA.NO_TURNS' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Previous "Liquid Glass" Action Sheet Design -->
+        <section class="legacy-designs">
+            <header class="section-divider">
+                <div class="divider-text">
+                    <h2>{{ 'FIGMA.LEGACY_TITLE' | translate }}</h2>
+                    <span>Liquid Glass Effect & Action Sheet</span>
+                </div>
+                <div class="line"></div>
+            </header>
+
+            <div class="action-sheet-preview">
+                <div class="action-sheet-card glass-liquid">
+                    <div class="handle"></div>
+                    <div class="sheet-body">
+                        <h3>Action Sheet Preview</h3>
+                        <p>Este es el diseño original con desenfoque extremo de 80px y bordes de 34px solicitado
+                            inicialmente.</p>
+
+                        <div class="mock-options">
+                            <div class="option-row">
+                                <span class="opt-icon">📷</span>
+                                <span class="opt-text">Subir Foto de Corte</span>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="option-row">
+                                <span class="opt-icon">📧</span>
+                                <span class="opt-text">Enviar Recordatorio</span>
+                            </div>
+                        </div>
+
+                        <div class="sheet-actions">
+                            <button class="btn-sheet-primary">Aceptar</button>
+                            <button class="btn-sheet-secondary">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>

@@ -1,0 +1,338 @@
+.figma-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+}
+
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    border-radius: 0 20px 20px 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 50px;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s ease;
+}
+
+nav li:hover,
+nav li.active {
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--accent);
+}
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.lang-switcher-sidebar {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+.lang-switcher-sidebar button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.lang-switcher-sidebar button.active {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.main-content {
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    background: radial-gradient(circle at 70% 20%, rgba(34, 211, 238, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 10% 80%, rgba(34, 211, 238, 0.03) 0%, transparent 30%);
+}
+
+.content-header {
+    margin-bottom: 40px;
+}
+
+.content-header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* --- CALENDAR DESIGN (SHADCN STYLE) --- */
+.calendar-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 30px;
+    max-width: 1200px;
+    margin-bottom: 60px;
+}
+
+.glass-shadcn {
+    padding: 24px;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+}
+
+.calendar-header h3 {
+    text-transform: capitalize;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.btn-nav {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.weekday {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.75rem;
+    padding-bottom: 12px;
+}
+
+.day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.day.selected {
+    background: white !important;
+    color: black !important;
+    font-weight: 600;
+}
+
+.glass-card {
+    padding: 32px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.item-glass {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 16px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* --- LEGACY DESIGN (LIQUID GLASS) --- */
+.legacy-designs {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.section-divider {
+    margin-bottom: 40px;
+}
+
+.divider-text h2 {
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.divider-text span {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.action-sheet-preview {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.glass-liquid {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 34px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.action-sheet-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    position: relative;
+}
+
+.handle {
+    width: 40px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 0 auto 25px;
+}
+
+.sheet-body h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.sheet-body p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.mock-options {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.option-row {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+    border-radius: 12px;
+}
+
+.option-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.opt-icon {
+    font-size: 1.2rem;
+}
+
+.opt-text {
+    color: white;
+    font-weight: 500;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 2px 15px;
+}
+
+.sheet-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-sheet-primary {
+    flex: 1;
+    background: white;
+    color: black;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-sheet-secondary {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-logout {
+    width: 100%;
+    padding: 12px;
+    background: rgba(239, 68, 68, 0.05);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.1);
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
