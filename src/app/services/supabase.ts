@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { User } from '@supabase/supabase-js';
+import { BehaviorSubject, Observable, of } from 'rxjs';
+import { delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Supabase {
-  private supabase: SupabaseClient;
   private _currentUser = new BehaviorSubject<User | null>(null);
 
-  constructor() {
-    const supabaseUrl = 'https://gazeinbmabvfnqrkwbxw.supabase.co';
-    const supabaseKey = 'sb_publishable_ZYUIAhXahLLjsFsGXfrVVA_Yg8vVe-P';
-    this.supabase = createClient(supabaseUrl, supabaseKey);
+  // Mocks persistentes en memoria durante la sesión
+  private mockUser: User = {
+    id: 'mock-123',
+    email: 'test@barber.com',
+    app_metadata: {},
+    user_metadata: { full_name: 'Barbero de Prueba' },
+    aud: 'authenticated',
+    created_at: new Date().toISOString()
+  } as User;
 
-    this.supabase.auth.onAuthStateChange((event, session) => {
-      this._currentUser.next(session?.user ?? null);
-    });
+  constructor() {
+    console.log('--- Supabase Service: Modo MOCK activado ---');
   }
 
   get currentUser$(): Observable<User | null> {
@@ -27,95 +31,85 @@ export class Supabase {
     return this._currentUser.value;
   }
 
-  async signIn(email: string, pass: string) {
-    return await this.supabase.auth.signInWithPassword({ email, password: pass });
+  async signIn(email: string, pass: string): Promise<{ data: any, error: any }> {
+    console.log('Mock SignIn:', email);
+    // Simular retraso de red
+    await new Promise(resolve => setTimeout(resolve, 800));
+
+    if (email === 'test@barber.com' && pass === '123456') {
+      this._currentUser.next(this.mockUser);
+      return { data: { user: this.mockUser, session: {} }, error: null };
+    }
+
+    return {
+      data: { user: null, session: null },
+      error: { message: 'Invalid login credentials', status: 400 }
+    };
   }
 
-  async signUp(email: string, pass: string) {
-    return await this.supabase.auth.signUp({ email, password: pass });
+  async signUp(email: string, pass: string): Promise<{ data: any, error: any }> {
+    console.log('Mock SignUp:', email);
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return { data: { user: { email } as User, session: null }, error: null };
   }
 
   async signOut() {
-    return await this.supabase.auth.signOut();
+    this._currentUser.next(null);
+    return { error: null };
   }
 
-  // Real data methods
   async getTurns() {
-    const { data, error } = await this.supabase
-      .from('turns')
-      .select(`
-        id,
-        appointment_date,
-        service_name,
-        status,
-        clients (
-          full_name
-        )
-      `)
-      .order('appointment_date', { ascending: true });
-
-    if (error) {
-      console.error('Error fetching turns:', error);
-      return [];
-    }
-    return data;
+    console.log('Mock getTurns');
+    return [
+      {
+        id: 1,
+        appointment_date: new Date().toISOString(),
+        service_name: 'Corte Degradado',
+        status: 'pending',
+        clients: { full_name: 'Juan Pérez' }
+      },
+      {
+        id: 2,
+        appointment_date: new Date(Date.now() + 3600000).toISOString(),
+        service_name: 'Barba Premium',
+        status: 'completed',
+        clients: { full_name: 'Mateo García' }
+      },
+      {
+        id: 3,
+        appointment_date: new Date(Date.now() + 7200000).toISOString(),
+        service_name: 'Corte + Barba',
+        status: 'pending',
+        clients: { full_name: 'David Silva' }
+      }
+    ];
   }
 
   async getLoyaltyData() {
-    // This could also be a view in Supabase for better performance
-    const { data, error } = await this.supabase
-      .from('turns')
-      .select(`
-        client_id,
-        clients (
-          full_name
-        )
-      `)
-      .eq('status', 'completed');
-
-    if (error) {
-      console.error('Error fetching loyalty data:', error);
-      return [];
-    }
-
-    // Aggregate data
-    const stats: Record<string, number> = {};
-    data.forEach((turn: any) => {
-      const name = turn.clients?.full_name || 'Desconocido';
-      stats[name] = (stats[name] || 0) + 1;
-    });
-
-    return Object.entries(stats)
-      .map(([name, visits]) => ({ name, visits }))
-      .sort((a, b) => b.visits - a.visits)
-      .slice(0, 5);
+    console.log('Mock getLoyaltyData');
+    return [
+      { name: 'Juan Pérez', visits: 12 },
+      { name: 'Mateo García', visits: 8 },
+      { name: 'David Silva', visits: 5 },
+      { name: 'Carlos Ruiz', visits: 3 },
+      { name: 'Luis Torres', visits: 2 }
+    ];
   }
 
   async getClients() {
-    const { data, error } = await this.supabase
-      .from('clients')
-      .select('*')
-      .order('created_at', { ascending: false });
-
-    if (error) {
-      console.error('Error fetching clients:', error);
-      return [];
-    }
-    return data;
+    console.log('Mock getClients');
+    return [
+      { id: 1, full_name: 'Juan Pérez', email: 'juan@example.com', phone: '123456789', created_at: '2024-01-10' },
+      { id: 2, full_name: 'Mateo García', email: 'mateo@example.com', phone: '987654321', created_at: '2024-02-15' },
+      { id: 3, full_name: 'David Silva', email: 'david@example.com', phone: '456789123', created_at: '2024-02-20' }
+    ];
   }
 
   async getSummaryStats() {
-    const { count: clientCount } = await this.supabase
-      .from('clients')
-      .select('*', { count: 'exact', head: true });
-
-    const { count: turnCount } = await this.supabase
-      .from('turns')
-      .select('*', { count: 'exact', head: true });
-
+    console.log('Mock getSummaryStats');
     return {
-      totalClients: clientCount || 0,
-      totalTurns: turnCount || 0,
+      totalClients: 154,
+      totalTurns: 1240,
     };
   }
 }

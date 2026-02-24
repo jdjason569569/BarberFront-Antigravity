@@ -17,11 +17,11 @@ export class LoyaltyGraph implements OnInit {
     scales: {
       x: {
         grid: { display: false },
-        ticks: { color: '#94a3b8' }
+        ticks: { color: '#3d2b1f' }
       },
       y: {
-        grid: { color: '#334155' },
-        ticks: { color: '#94a3b8' }
+        grid: { color: '#d2b48c' },
+        ticks: { color: '#3d2b1f' }
       }
     },
     plugins: {
@@ -35,7 +35,7 @@ export class LoyaltyGraph implements OnInit {
     datasets: [
       {
         data: [],
-        backgroundColor: '#22d3ee',
+        backgroundColor: '#8b0000',
         borderRadius: 5,
         borderSkipped: false
       }

@@ -18,8 +18,9 @@
 
 .btn-action {
     padding: 6px 12px;
-    background: rgba(251, 191, 36, 0.1);
-    border: 1px solid rgba(251, 191, 36, 0.2);
+    background: rgba(139, 0, 0, 0.08);
+    /* Rojo muy suave */
+    border: 1px solid rgba(139, 0, 0, 0.15);
     border-radius: 6px;
     color: var(--accent);
     cursor: pointer;
@@ -27,5 +28,5 @@
 }
 
 .btn-action:hover {
-    background: rgba(251, 191, 36, 0.2);
+    background: rgba(139, 0, 0, 0.15);
 }

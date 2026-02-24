@@ -6,16 +6,28 @@
                 <th>{{ 'TURNS.SERVICE' | translate }}</th>
                 <th>{{ 'TURNS.DATE' | translate }}</th>
                 <th>{{ 'TURNS.STATUS' | translate }}</th>
+                <th>Acciones</th>
             </tr>
         </thead>
-        <tbody>
-            <tr *ngFor="let turn of turns()">
-                <td class="client-name">{{ turn.clients?.full_name }}</td>
+        <tbody cdkDropList (cdkDropListDropped)="drop($event)">
+            <tr *ngFor="let turn of turns(); let i = index" cdkDrag>
+                <td class="client-name">
+                    <span class="drag-handle">⠿</span>
+                    {{ turn.clients?.full_name }}
+                </td>
                 <td class="service-name">{{ turn.service_name }}</td>
-                <td class="date">{{ turn.appointment_date | date:'short' }}</td>
+                <td class="date">
+                    {{ turn.appointment_date | date:'shortTime' }}
+                    <span class="full-date">{{ turn.appointment_date | date:'shortDate' }}</span>
+                </td>
                 <td class="status">
                     <span [class]="'badge ' + turn.status">{{ ('TURNS.' + turn.status.toUpperCase()) | translate
                         }}</span>
+                </td>
+                <td>
+                    <button class="btn-postpone" (click)="postponeTurn(i)" title="+10 minutos">
+                        ⏱️ +10
+                    </button>
                 </td>
             </tr>
         </tbody>

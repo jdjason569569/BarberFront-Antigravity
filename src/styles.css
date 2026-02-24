@@ -1,14 +1,19 @@
-/* src/styles.css */
 :root {
-  --bg-dark: #020617;
-  --bg-secondary: #0f172a;
-  --accent: #22d3ee;
-  --accent-hover: #0891b2;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --card-bg: rgba(15, 23, 42, 0.6);
-  --border-color: rgba(34, 211, 238, 0.1);
-  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-dark: #fdf5e6;
+  /* Beige / Papel antiguo */
+  --bg-secondary: #f5ecd5;
+  /* Beige oscuro */
+  --accent: #8b0000;
+  /* Rojo Borgoña / Sangre de toro */
+  --accent-hover: #a30000;
+  --text-primary: #3d2b1f;
+  /* Marrón Tabaco */
+  --text-secondary: #6b4f3a;
+  /* Marrón Cuero */
+  --card-bg: #ffffff;
+  --border-color: #d2b48c;
+  /* Tan / Bronce */
+  --font-family: 'Lora', serif;
 }
 
 * {
@@ -23,12 +28,15 @@ body {
   font-family: var(--font-family);
   min-height: 100vh;
   line-height: 1.5;
+  background-image: radial-gradient(circle at 2px 2px, #e8e0d0 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
 h1,
 h2,
 h3 {
   color: var(--accent);
+  font-family: 'Playfair Display', serif;
 }
 
 button {
@@ -37,8 +45,9 @@ button {
 }
 
 .glass {
-  background: var(--card-bg);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
   border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
